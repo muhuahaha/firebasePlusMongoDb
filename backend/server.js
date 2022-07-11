@@ -12,6 +12,7 @@ const connectDB = require('./config/db');
 const workoutRoutes = require('./routes/workoutsRoutes');
 const userRoutes = require('./routes/userRoutes');
 const postRoutes = require('./routes/postRoutes');
+const employeesRoutes = require('./routes/api/employees');
 
 const PORT = process.env.PORT || 7000;
 
@@ -59,6 +60,7 @@ app.get('/', (req, res) => {
 app.use('/api/users', userRoutes);
 app.use('/api/workouts', workoutRoutes);
 app.use('/api/posts', workoutRoutes);
+app.use('/employees', employeesRoutes);
 
 app.all('*', (req, res) => {
   res.status(404);
