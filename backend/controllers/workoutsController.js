@@ -5,6 +5,8 @@ const asyncHandler = require('express-async-handler');
 // @acess Public
 const getWorkout = asyncHandler(async (req, res) => {
   console.log('hallo');
+  console.log('get /');
+  res.json({ message: 'Get all workouts' });
 });
 
 module.exports = {

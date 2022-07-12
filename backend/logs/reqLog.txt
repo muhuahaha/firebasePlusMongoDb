@@ -85,3 +85,13 @@
 20220712	01:31:55	4992db83-bd9a-47ba-9b2a-200625e47c7a	DELETE	undefined	/employees
 20220712	01:32:01	3f9cb76a-1d02-402b-a3a5-9d851c01b722	DELETE	undefined	/employees
 20220712	01:33:24	bca5c630-99f4-4bf0-89f6-13931a378129	GET	undefined	/employees/1
+20220712	02:49:05	09c1064f-5782-4f2c-bc9b-5ba48a7a3a25	GET	undefined	/api/workouts
+20220712	02:49:06	d9f5b835-9cda-404c-ae6e-5a31cdc10548	GET	undefined	/api/workouts
+20220712	02:49:37	821ce6db-4119-4b94-94e7-9db53f127f46	GET	undefined	/api/workouts
+20220712	05:16:13	9872397a-31bb-447a-8f87-452c05497ed2	GET	undefined	/workouts
+20220712	05:17:30	ec642ff8-9b2e-44cd-b103-f4d417618652	POST	undefined	/workouts
+20220712	05:17:52	d3851159-9533-4c57-ac87-6374fabae1d9	POST	undefined	/workouts
+20220712	05:18:58	7e16ddfb-6843-44ff-a8be-0cf277e75d17	POST	undefined	/api/workouts
+20220712	05:19:12	42ae07a1-8d7a-4c1a-953b-82009d4f5ca9	POST	undefined	/api/workouts
+20220712	05:19:48	a57c57ad-79a7-4c72-b337-5569e11f0f4a	POST	undefined	/api/workouts
+20220712	05:21:36	58f71c1b-0a9e-493a-bd7a-3a3f23274869	POST	undefined	/api/workouts

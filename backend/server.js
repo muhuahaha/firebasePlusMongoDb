@@ -5,6 +5,7 @@ const { colors } = require('colors');
 // eslint-disable-next-line no-unused-vars
 const dotenv = require('dotenv').config();
 const cors = require('cors');
+const corsOptions = require('./config/corsOptions');
 const { logger } = require('./middleware/logEvents');
 const { errorHandler } = require('./middleware/errorMiddleware');
 const connectDB = require('./config/db');
@@ -26,25 +27,13 @@ const app = express();
 app.use(logger);
 
 // Cross Origin Resource Sharing
-const whitelist = [
-  'https://www.google.com',
-  'http://127.0.0.1:8000',
-  'http://localhost:8000',
-];
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (whitelist.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  optionsSuccessStatus: 200,
-};
 app.use(cors(corsOptions));
 
-app.use(express.json());
+// built-in middleware to handle urlencoded form data
 app.use(express.urlencoded({ extended: false }));
+
+// built-in middleware for json
+app.use(express.json());
 
 app.use((req, res, next) => {
   console.log('req.method: ', req.method);
@@ -59,7 +48,7 @@ app.get('/', (req, res) => {
 // Routes
 app.use('/api/users', userRoutes);
 app.use('/api/workouts', workoutRoutes);
-app.use('/api/posts', workoutRoutes);
+app.use('/api/posts', postRoutes);
 app.use('/employees', employeesRoutes);
 
 app.all('*', (req, res) => {
