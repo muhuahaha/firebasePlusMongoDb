@@ -1,13 +1,33 @@
-const data = {};
-data.employees = require('../models/employees.json');
+const asyncHandler = require('express-async-handler');
+
+const express = require('express');
+const Employee = require('../models/employeesModel');
+
+const router = express.Router();
 
 const getAllEmployees = (req, res) => {
-  res.json(data.employees);
+  res.json({ message: 'HUhuh' });
 };
 
-const createNewEmployee = (req, res) => {
-  res.json({ firstname: req.body.firstname, lastname: req.body.lastname });
-};
+const createNewEmployee = asyncHandler(async (req, res) => {
+  const { firstname, lastname } = req.body;
+
+  // Validation
+  if (!firstname || !lastname) {
+    res.status(400);
+    throw new Error('Please include all fields');
+  }
+
+  try {
+    const employee = await Employee.create({
+      firstname,
+      lastname,
+    });
+    res.status(200).json(employee);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
 
 const updateEmployee = (req, res) => {
   res.json({
